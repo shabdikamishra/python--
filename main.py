@@ -2,9 +2,10 @@
 import random
 
 def get_choices():
+    option = ["rock", "paper", "sciccors"]
 
-    player_choice = input("Enter a choice(rock,paper,sciccors):")
-    computer_choice = input("Enter a choice(rock,paper,sciccors):")
+    player_choice = input("Enter a choice ( rock, paper, sciccors)")
+    computer_choice = random.choice(option)
     #dictionaries in python are used to stored data in key-value pairs
     choices ={"player" : player_choice, "computer": computer_choice}
     return choices
