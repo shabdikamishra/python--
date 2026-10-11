@@ -30,4 +30,6 @@ def check_win(player,computer):
         else:
            print("Computer wins")
 
-check_win('rock', 'scissors')
+choices = get_choices()
+check_win(choices["player"], choices["computer"])
+
