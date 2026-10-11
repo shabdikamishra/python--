@@ -1,0 +1,2 @@
+name = "shabdika"
+print(name)
