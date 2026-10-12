@@ -1,24 +1,17 @@
 class Item:
-    def __init__(self, name):  #when we create instance of the class, the init method is called automatically and we can initialize the attributes of the class in this method (constructor)
-        print(f"Item created:  {name}")
+    def __init__(self, name:str, price:float, quantity:int =0):  #when we create instance of the class, the init method is called automatically and we can initialize the attributes of the class in this method (constructor)
+        assert price >= 0, f"Price {price} is not greater than or equal to zero!"
+        assert quantity >= 0, f"Quantity {quantity} is not greater than or equal to zero!"
 
-    def calculate_total_price_(self,x,y):  #python self is a reference to the current instance of the class(item1,item2) and is used to access variables that belong to the class
-        return x * y                       #python always passes the instance of the class as the first argument to the method, so we need to include self as the first parameter in the method definition
-    #x and y being price and quantity
+        self.name = name
+        self.price = price
+        self.quantity = quantity
 
-
-item1= Item("Phone")
-item1.name= "Phone"
-item1.price = 100
-item1.quantity= 5
-##  print(item1.calculate_total_price_(item1.price,item1.quantity))
+    def calculate_total_price(self):
+        return self.price * self.quantity
 
 
-print(type(item1))
-print(type(item1.name))
 
-item2= Item("Laptop")
-item2.name= "Laptop"
-item2.price = 1000
-item2.quantity= 20
-# print(item2.calculate_total_price_(item2.price,item2.quantity))
+item1 = Item("Phone", 100, 5)
+print(item1.calculate_total_price())  # 500
+
