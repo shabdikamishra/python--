@@ -1,20 +1,26 @@
-def hello(name="my friend", age=0):
-    print(f"Hello {name}, you are {age} years old")
 
-hello("Beau", 39)
-hello()  # Uses defaults
+def talk(phrase):
+    def say(word):
+        print(word)
+    
+    words = phrase.split(' ')
+    for word in words:
+        say(word)
 
-# Passing mutable vs immutable objects
-def change(val):
-    val = 2
+talk("I am going to buy the milk")
 
-val = 1
-change(val)
-print(val)  # 1 (integers are immutable)
+# Closure with nonlocal
+def counter():
+    count = 0
 
-def change_dict(d):
-    d["name"] = "Sid"
+    def increment():
+        nonlocal count
+        count += 1
+        return count
 
-my_dict = {"name": "Beau"}
-change_dict(my_dict)
-print(my_dict["name"])  # 'Sid' (dictionaries are mutable)
+    return increment
+
+increment = counter()
+print(increment())  # 1
+print(increment())  # 2
+print(increment())  # 3
