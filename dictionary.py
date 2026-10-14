@@ -1,21 +1,20 @@
-dog = {"name": "Roger", "age": 8}
+my_dict = {"name": "Max", "age": 28, "city": "New York"}
 
-print(dog["name"])                  # 'Roger'
-dog["name"] = "Sid"                 # Update
 
-# get() with default fallback
-print(dog.get("color", "brown"))    # 'brown'
+print(my_dict["name"])
+my_dict["email"] = "max@xyz.com"
+del my_dict["city"]
+my_dict.pop("age")
 
-# Deletion & popping
-dog["color"] = "green"
-dog.pop("name")                     # Removes and returns 'Sid'
-dog.popitem()                       # Removes and returns last key-value pair
+# Iteration
+for key, value in my_dict.items():
+    print(key, value)
 
-# Inspection
-print("age" in dog)                 # True
-print(list(dog.keys()))             # ['age']
-print(list(dog.values()))           # [8]
-print(list(dog.items()))            # [('age', 8)]
 
-del dog["age"]                      # Delete key
-dog_copy = dog.copy()               # Shallow copy
+dict1 = {"name": "Max", "age": 28}
+dict2 = {"name": "Mary", "city": "Boston"}
+dict1.update(dict2)   # Overwrites 'name' and adds 'city'
+
+# Tuple as a valid immutable dictionary key
+tuple_key = (8, 7)
+d = {tuple_key: 15}   #shallow copy
